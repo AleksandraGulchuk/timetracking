@@ -20,7 +20,7 @@
 <table class="table table-striped table-hover">
     <thead>
     <tr>
-        <td><b><fmt:message key="requestDateTime"/> </b></td>
+        <td><b><fmt:message key="requestDateTime"/></b></td>
         <td><b><fmt:message key="requestType"/> </b></td>
         <td><b><fmt:message key="category"/></b></td>
         <td><b><fmt:message key="title"/> </b></td>

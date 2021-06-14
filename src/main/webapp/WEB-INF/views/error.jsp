@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
@@ -7,7 +7,6 @@
     <c:set var="pageTitle" value="Error" scope="page"/>
     <%@include file="components/head.jspf" %>
     <fmt:setBundle basename="resources"/>
-
 </head>
 
 <body>
@@ -22,9 +21,7 @@
             <input type="hidden" name="command" value="showPageCommand"/>
             <input type="submit" class="btn btn-outline-secondary" value="<fmt:message key="button.back"/>"/>
         </form>
+    </div>
 </div>
-
-<%----%>
-
 </body>
 </html>

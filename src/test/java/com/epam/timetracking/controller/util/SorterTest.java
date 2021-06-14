@@ -1,7 +1,7 @@
 package com.epam.timetracking.controller.util;
 
-import com.epam.timetracking.entities.ActivityStatus;
-import com.epam.timetracking.exceptions.ServiceException;
+import com.epam.timetracking.pojo.entity.ActivityStatus;
+import com.epam.timetracking.pojo.entity.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -32,6 +32,14 @@ public class SorterTest {
         statusesExpected.add(new ActivityStatus(3, "new"));
         statusesExpected.add(new ActivityStatus(4, "on update"));
 
-        Assertions.assertEquals(statusesExpected.toString(), statusesActual.toString());
+        Assertions.assertArrayEquals(statusesExpected.toArray(), statusesActual.toArray());
+    }
+
+    @Test
+    public void testGetConditions(){
+        List<String> conditionsActual = Sorter.getConditions(User.class);
+        System.out.println(conditionsActual);
+        List<String> conditionsExpected = List.of("activities", "id", "login", "name",  "password", "role", "roleId");
+        Assertions.assertArrayEquals(conditionsExpected.toArray(), conditionsActual.toArray());
     }
 }

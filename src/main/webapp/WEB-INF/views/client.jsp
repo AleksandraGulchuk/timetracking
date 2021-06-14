@@ -63,7 +63,7 @@
 <table class="table table-striped table-hover">
     <thead>
     <tr>
-        <td><a href="controller?command=sortBy&listName=activities&condition=id" class="link-dark"><b>Id</b></a></td>
+        <td><a href="controller?command=sortBy&listName=activities&condition=id" class="link-dark"><b>ID</b></a></td>
         <td><a href="controller?command=sortBy&listName=activities&condition=category" class="link-dark"><b><fmt:message key="category"/></b></a></td>
         <td><a href="controller?command=sortBy&listName=activities&condition=title" class="link-dark"><b><fmt:message key="title"/> </b></a></td>
         <td><a href="controller?command=sortBy&listName=activities&condition=description" class="link-dark"><b><fmt:message key="description"/></b></a></td>

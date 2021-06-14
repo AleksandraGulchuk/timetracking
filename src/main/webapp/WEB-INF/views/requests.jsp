@@ -38,15 +38,13 @@
                class="link-dark"><b><fmt:message key="description"/></b></a></td>
         <td><a href="controller?command=sortBy&listName=userRequests&condition=totalTime"
                class="link-dark"><b><fmt:message key="totalTime"/> </b></a></td>
-        <td><a href="controller?command=sortBy&listName=userRequests&condition=status" class="link-dark"><b><fmt:message
-                key="status"/> </b></a></td>
+        <td><a href="controller?command=sortBy&listName=userRequests&condition=status" class="link-dark">
+            <b><fmt:message key="status"/> </b></a></td>
         <td><a href="controller?command=sortBy&listName=userRequests&condition=comment"
                class="link-dark"><b><fmt:message key="comment"/> </b></a></td>
         <td><a href="controller?command=sortBy&listName=userRequests&condition=requestType"
                class="link-dark"><b><fmt:message key="requestType"/> </b></a></td>
-        <td><a href="controller?command=sortBy&listName=userRequests&condition=appendTime"
-               class="link-dark"><b><fmt:message key="activity_jsp.append_time"/> </b></a></td>
-        <td><b>choose</b></td>
+        <td><b><fmt:message key="action"/> </b></td>
     </tr>
     </thead>
     <tbody>
@@ -63,34 +61,21 @@
             <td>${userRequest.status}</td>
             <td>${userRequest.comment}</td>
             <td>${userRequest.requestType}</td>
-            <td>${userRequest.appendTime}</td>
             <td>
                 <form action="controller" method="post">
                     <input type="hidden" name="command" value="processUserRequest">
                     <input type="hidden" name="requestType" value="${userRequest.requestType}">
-                    <input type="hidden" name="requestId" value="${userRequest.id}">
-
-
-                    <button type="submit" class="btn btn-outline-success" name="choose" value="confirm">
+                    <input type="hidden" name="id" value="${userRequest.id}">
+                    <button type="submit" class="btn btn-outline-success" name="choice" value="confirm">
                         <fmt:message key="button.confirm"/>
                     </button>
-
-<%--                    <input type="submit" class="btn btn-outline-success" name="choose"--%>
-<%--                           value="confirm"><fmt:message key="button.confirm"/>--%>
-
                     <div class="input-group mb-3">
                         <input type="text" name="comment" class="form-control"
                                placeholder="<fmt:message key="comment"/>" aria-label="Comment"
                                aria-describedby="button-addon2">
-
-                        <button type="submit" class="btn btn-outline-dark" name="choose" value="deny">
+                        <button type="submit" class="btn btn-outline-dark" name="choice" value="deny">
                             <fmt:message key="button.deny"/>
                         </button>
-
-<%--                        <input type="submit" class="btn btn-outline-dark" name="choose"--%>
-<%--                               value="deny"><fmt:message key="button.deny"/>--%>
-
-
                     </div>
                 </form>
             </td>

@@ -59,18 +59,19 @@
             <form action="controller" method="post">
                 <input type="hidden" name="command" value="addActivity">
                 <input type="hidden" name="userId" value="${userId}">
-                <td><b>Create new activity</b></td>
+                <td><b><fmt:message key="client_jsp.new_activity"/> </b></td>
                 <td><select name="categoryId" class="form-select" required>
                     <option selected disabled value=""><fmt:message key="option.select"/> </option>
                     <c:forEach var="category" items="${categories}">
                         <option type="hidden" name="categoryId" value=${category.id}>${category.category}</option>
                     </c:forEach>
-                </select><br></td>
+                </select>
+                </td>
                 <td><input type="text" name="title" placeholder="<fmt:message key="title"/>" class="form-control" required/></td>
                 <td><input type="text" name="description" placeholder="<fmt:message key="description"/>" class="form-control" required/></td>
                 <td>-</td>
                 <td>-</td>
-                <td><input type="time" name="totalTime" value="00:00"/></td>
+                <td><input type="time" name="totalTime" value="00:00" class="form-control"/></td>
                 <td>-</td>
                 <td>
                     <input type="submit" class="btn btn-secondary my-2 my-sm-0"

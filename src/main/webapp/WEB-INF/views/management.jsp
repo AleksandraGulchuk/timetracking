@@ -33,7 +33,7 @@
                 <table class="table table-striped table-hover">
                     <thead>
                     <tr>
-                        <td><b>Id</b></td>
+                        <td><b>ID</b></td>
                         <td><b><fmt:message key="userName"/></b></td>
                         <td><b><fmt:message key="login"/></b></td>
                         <td><b><fmt:message key="role"/> </b></td>

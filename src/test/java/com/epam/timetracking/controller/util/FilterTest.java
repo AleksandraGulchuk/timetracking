@@ -1,7 +1,7 @@
 package com.epam.timetracking.controller.util;
 
-import com.epam.timetracking.entities.ActivityStatus;
-import com.epam.timetracking.exceptions.ServiceException;
+import com.epam.timetracking.pojo.entity.ActivityStatus;
+import com.epam.timetracking.exception.ServiceException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -24,6 +24,7 @@ public class FilterTest {
         try {
             List<ActivityStatus> statusesActual = filter
                     .filter(statuses, "status", new String[]{"new", "changed"});
+
             ActivityStatus[] statusesExpected = new ActivityStatus[]{
                     new ActivityStatus(0, "new"),
                     new ActivityStatus(1, "new"),

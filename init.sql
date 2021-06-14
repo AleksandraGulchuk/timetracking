@@ -53,8 +53,7 @@ CREATE TABLE statuses
 INSERT INTO statuses (status)
 VALUES ('new'),
        ('changed'),
-       ('on update'),
-       ('deleted');
+       ('on update');
 
 CREATE TABLE activities
 (
@@ -105,39 +104,17 @@ CREATE TABLE users_create_activity_requests
     UNIQUE (user_id, category_id, title)
 );
 
-
-
-CREATE TABLE users_append_time_activity_requests
-(
-    id          SERIAL PRIMARY KEY,
-    request_date_time TIMESTAMP NOT NULL,
-    user_id     INT  NOT NULL,
-    activity_id INT  NOT NULL,
-    activity_old_status_id INT NOT NULL,
-    append_time BIGINT NOT NULL,
-    comment     VARCHAR(250),
-    CONSTRAINT fk_users_append_time_activity_requests_users_id
-        FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT fk_users_append_time_activity_requests_activities_id
-        FOREIGN KEY (activity_id) REFERENCES activities (id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT fk_users_append_time_activity_requests_statuses_id
-        FOREIGN KEY (activity_old_status_id) REFERENCES statuses (id) ON DELETE RESTRICT ON UPDATE CASCADE
-);
-
 CREATE TABLE users_delete_activity_requests
 (
     id          SERIAL PRIMARY KEY,
     request_date_time TIMESTAMP   NOT NULL,
     user_id     INT NOT NULL,
     activity_id INT NOT NULL,
-    activity_old_status_id INT NOT NULL,
     comment VARCHAR(250),
     CONSTRAINT fk_users_delete_requests_users_id
         FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_users_delete_requests_activities_id
         FOREIGN KEY (activity_id) REFERENCES activities (id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT fk_users_delete_requests_statuses_id
-        FOREIGN KEY (activity_old_status_id) REFERENCES statuses (id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 CREATE TABLE request_types
@@ -147,7 +124,7 @@ CREATE TABLE request_types
 );
 
 INSERT INTO request_types (type)
-VALUES ('create NEW'),('delete'),('append time');
+VALUES ('create NEW'),('delete');
 
 CREATE TABLE admin_comments
 (

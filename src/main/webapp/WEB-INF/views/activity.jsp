@@ -19,13 +19,13 @@
     </div>
 </div>
 
-<table class="table">
+<table class="table table-borderless">
     <tr>
-        <td>
+        <td class="w-25 p-3">
             <h5><fmt:message key="activity_jsp.info"/></h5>
             <table class="table table-hover">
                 <tr>
-                    <td>Id</td>
+                    <td>ID</td>
                     <td>${activity.id}</td>
                 </tr>
                 <tr>
@@ -60,33 +60,20 @@
 
             <h5><fmt:message key="activity_jsp.append_time_of_activity"/></h5>
             <form action="controller" method="post">
-                <input type="hidden" name="command" value="requestAppendTimeActivity">
+
+
+
+                <input type="hidden" name="command" value="appendTimeActivity">
                 <input type="hidden" name="id" value="${activity.id}">
 
-                <input type="hidden" name="status" value="${activity.status}">
+<%--                <input type="hidden" name="status" value="${activity.status}">--%>
+
 
                 <div class="input-group mb-3">
                     <input type="time" name="appendTime" class="form-control" required/>
                     <input type="text" class="form-control" name="comment" placeholder="<fmt:message key="comment"/>"
                            aria-label="comment" aria-describedby="button-addon2">
                     <input type="submit" class="btn btn-secondary" value="<fmt:message key="button.append"/>"/>
-                </div>
-            </form>
-
-            <h5><fmt:message key="activity_jsp.delete_activity"/></h5>
-            <form action="controller" method="post">
-                <input type="hidden" name="command" value="requestDeleteActivity">
-                <input type="hidden" name="id" value="${activity.id}">
-
-
-                <input type="hidden" name="status" value="${activity.status}">
-
-
-                <input type="hidden" name="userId" value="${sessionScope.user.id}">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="comment" placeholder="<fmt:message key="comment"/>"
-                           aria-label="comment" aria-describedby="button-addon2">
-                    <input type="submit" class="btn btn-outline-danger" value="<fmt:message key="button.delete"/>"/>
                 </div>
             </form>
         </td>
@@ -102,7 +89,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="story" items="${activity.stories}">
+                <c:forEach begin = "${pagination.beginIndex}" end = "${pagination.endIndex}" var="story" items="${activity.stories}">
                     <tr>
                         <td><t:formatDateTime dateTime="${story.updateDateTime}"/></td>
                         <td>${story.timeSpent}</td>
@@ -111,6 +98,36 @@
                 </c:forEach>
                 </tbody>
             </table>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <h5><fmt:message key="activity_jsp.delete_activity"/></h5>
+            <form action="controller" method="post">
+                <input type="hidden" name="command" value="requestDeleteActivity">
+                <input type="hidden" name="id" value="${activity.id}">
+                <input type="hidden" name="status" value="${activity.status}">
+                <input type="hidden" name="userId" value="${sessionScope.user.id}">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="comment" placeholder="<fmt:message key="comment"/>"
+                           aria-label="comment" aria-describedby="button-addon2">
+                    <input type="submit" class="btn btn-outline-danger" value="<fmt:message key="button.delete"/>"/>
+                </div>
+            </form>
+        </td>
+        <td class="align-bottom">
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                        <c:forEach var = "i" begin = "1" end = "${pagination.amountOfPages}">
+                            <li class="page-item">
+                                <a class="page-link"
+                                   href="controller?command=goToActivity&activityId=${activity.id}&page=${i}">
+                                    <c:out value = "${i}"/>
+                                </a></li>
+                        </c:forEach>
+                </ul>
+            </nav>
         </td>
     </tr>
 </table>

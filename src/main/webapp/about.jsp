@@ -13,10 +13,8 @@
 
 <comp:navBar role="${sessionScope.user.role}"/>
 
-
 <div class="card">
     <h5 class="card-header" align="center">Облік часу</h5>
-    Role=${sessionScope.user.role}
     <div class="card-body">
         <h6 class="card-title">Існують ролі: адміністратор і користувач системи.</h6>
         <h6 class="card-title">Адміністратор</h6>

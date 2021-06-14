@@ -19,10 +19,7 @@
         <p class="card-text"></p>
         <form action="controller" method="get">
             <input type="hidden" name="command" value="showPageCommand">
-
-        <%--            <input type="hidden" name="command" value="startPageCommand">--%>
             <input type="submit" class="btn btn-outline-secondary" value="<fmt:message key="button.back"/>"/>
-<%--             to start page">--%>
         </form>
     </div>
 </div>

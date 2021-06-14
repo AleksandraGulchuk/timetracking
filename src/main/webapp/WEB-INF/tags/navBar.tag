@@ -14,7 +14,7 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="controller?command=startPageCommand"><fmt:message key="navbar.home"/></a>
+                    <a class="nav-link active" aria-current="page" href="${app}/controller?command=startPageCommand"><fmt:message key="navbar.home"/></a>
                 </li>
 
                 <c:if test="${role eq 'admin'}">
@@ -31,13 +31,13 @@
 
                 <c:if test="${role eq 'client'}">
                     <li class="nav-item">
-                        <a class="nav-link" href="controller?command=showDeniedRequests"><fmt:message key="deniedRequests_jsp"/> </a>
+                        <a class="nav-link" href="${app}/controller?command=showDeniedRequests"><fmt:message key="deniedRequests_jsp"/> </a>
                     </li>
                 </c:if>
 
                 <c:if test="${role ne 'visitor'}">
                     <li class="nav-item">
-                        <a class="nav-link" href="controller?command=logOut"><fmt:message key="navbar.logout"/> </a>
+                        <a class="nav-link" href="${app}/controller?command=logOut"><fmt:message key="navbar.logout"/> </a>
                     </li>
                 </c:if>
                 <li class="nav-item">

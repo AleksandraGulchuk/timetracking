@@ -43,7 +43,6 @@
             </form>
         </td>
 
-
         <td>
             <form method="post" action="controller?command=filterBy">
                 <input type="hidden" name="condition" value="status">
@@ -59,7 +58,6 @@
                 </fieldset>
             </form>
         </td>
-
 
         <td>
             <form method="post" action="controller?command=filterBy">
@@ -104,7 +102,7 @@
         <td><a href="controller?command=sortBy&listName=activities&condition=userName"
                class="link-dark"><b><fmt:message key="userName"/> </b></a></td>
         <td><a href="controller?command=sortBy&listName=activities&condition=id"
-               class="link-dark"><b>Id</b></a></td>
+               class="link-dark"><b>ID</b></a></td>
         <td><a href="controller?command=sortBy&listName=activities&condition=category"
                class="link-dark"><b><fmt:message key="category"/> </b></a></td>
         <td><a href="controller?command=sortBy&listName=activities&condition=title"
@@ -120,8 +118,7 @@
         <td><a href="controller?command=sortBy&listName=activities&condition=status" class="link-dark"><b><fmt:message
                 key="status"/></b></a>
         </td>
-        <td><b><fmt:message key="activity_story"/> </b>
-            (<fmt:message key="updateDateTime"/>, <fmt:message key="timeSpent"/>, <fmt:message key="comment"/>)
+        <td class="w-25 p-3"><b><fmt:message key="activity_story"/></b>
         </td>
     </tr>
     </thead>
@@ -138,15 +135,26 @@
             <td>${activity.totalTime}</td>
             <td>${activity.status}</td>
             <td>
-                <table class="table table-bordered">
-                    <c:forEach var="story" items="${activity.stories}">
-                        <tr>
-                            <td><t:formatDateTime dateTime="${story.updateDateTime}"/></td>
-                            <td>${story.timeSpent}</td>
-                            <td>${story.comment}</td>
-                        </tr>
-                    </c:forEach>
-                </table>
+                <p>
+                    <button class="btn btn-outline-secondary" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                            aria-expanded="false" aria-controls="collapseExample">
+                        <fmt:message key="updateDateTime"/>     <fmt:message key="timeSpent"/>     <fmt:message key="comment"/>
+                    </button>
+                </p>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <table class="table table-bordered">
+                            <c:forEach var="story" items="${activity.stories}">
+                                <tr>
+                                    <td><t:formatDateTime dateTime="${story.updateDateTime}"/></td>
+                                    <td>${story.timeSpent}</td>
+                                    <td>${story.comment}</td>
+                                </tr>
+                            </c:forEach>
+                        </table>
+                    </div>
+                </div>
             </td>
         </tr>
     </c:forEach>
