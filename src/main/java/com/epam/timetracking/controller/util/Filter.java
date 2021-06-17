@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
  * Filter.
  * Type parameter:
  * <T> – the type of objects to be sorted
- *
  */
 @RequiredArgsConstructor
 public class Filter<T> {
@@ -26,10 +25,10 @@ public class Filter<T> {
     /**
      * Filters this list by conditions list.
      *
-     * @param list - the list of objects to filter.
+     * @param list      - the list of objects to filter.
      * @param condition - the name of the field that is the filtering condition.
-     * @param values - the value of the object field,
-     *               which is the condition for including the object in the filtered list
+     * @param values    - the value of the object field,
+     *                  which is the condition for including the object in the filtered list
      * @return - the filtered list.
      */
     public List<T> filter(List<T> list, String condition, String[] values) throws ServiceException {

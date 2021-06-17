@@ -30,7 +30,8 @@
     <tbody>
     <tr class="align-middle">
         <td>
-            <form method="post" action="controller?command=filterBy">
+            <form>
+                <input type="hidden" name="command" value="filterBy">
                 <input type="hidden" name="condition" value="category">
                 <input type="hidden" name="listName" value="activities">
                 <fieldset>
@@ -44,9 +45,11 @@
         </td>
 
         <td>
-            <form method="post" action="controller?command=filterBy">
+            <form>
+                <input type="hidden" name="command" value="filterBy">
                 <input type="hidden" name="condition" value="status">
                 <input type="hidden" name="listName" value="activities">
+
                 <fieldset>
                     <c:forEach var="activityStatus" items="${activityStatuses}">
                         <input type="checkbox" name="value" value="${activityStatus.status}">${activityStatus.status}
@@ -60,7 +63,8 @@
         </td>
 
         <td>
-            <form method="post" action="controller?command=filterBy">
+            <form>
+                <input type="hidden" name="command" value="filterBy">
                 <input type="hidden" name="condition" value="userName">
                 <input type="hidden" name="listName" value="activities">
                 <fieldset>
@@ -139,7 +143,7 @@
                     <button class="btn btn-outline-secondary" type="button"
                             data-bs-toggle="collapse" data-bs-target="#collapseExample"
                             aria-expanded="false" aria-controls="collapseExample">
-                        <fmt:message key="updateDateTime"/>     <fmt:message key="timeSpent"/>     <fmt:message key="comment"/>
+                        <fmt:message key="updateDateTime"/> <fmt:message key="timeSpent"/> <fmt:message key="comment"/>
                     </button>
                 </p>
                 <div class="collapse" id="collapseExample">

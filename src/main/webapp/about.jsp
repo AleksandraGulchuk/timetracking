@@ -38,7 +38,6 @@
             Користувач відмічає кількість витраченого часу на кожну активність.<br>
             Користувач може відправити запит на додавання/видалення активності.
         </p>
-        <a href="index.jsp" class="btn btn-outline-secondary"><fmt:message key="button.go_to_start_page"/> </a>
     </div>
 </div>
 </body>

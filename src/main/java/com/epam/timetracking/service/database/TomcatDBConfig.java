@@ -29,7 +29,7 @@ public class TomcatDBConfig implements DBConfig {
     }
 
     @Override
-    public DataSource getDataSource(){
+    public DataSource getDataSource() {
         return dataSource;
     }
 }

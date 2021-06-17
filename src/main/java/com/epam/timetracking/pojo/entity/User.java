@@ -2,7 +2,6 @@ package com.epam.timetracking.pojo.entity;
 
 import com.epam.timetracking.pojo.bean.ActivityDTO;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

@@ -1,13 +1,13 @@
 package com.epam.timetracking.controller.command.admin;
 
 import com.epam.timetracking.controller.PagePath;
+import com.epam.timetracking.exception.ServiceException;
+import com.epam.timetracking.pojo.Adapter;
 import com.epam.timetracking.pojo.bean.ActivityDTO;
 import com.epam.timetracking.pojo.bean.ActivityStoryDTO;
-import com.epam.timetracking.pojo.Adapter;
 import com.epam.timetracking.pojo.entity.Activity;
 import com.epam.timetracking.pojo.entity.ActivityStory;
 import com.epam.timetracking.pojo.entity.User;
-import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.service.AdminService;
 import com.epam.timetracking.service.ClientService;
 import lombok.RequiredArgsConstructor;

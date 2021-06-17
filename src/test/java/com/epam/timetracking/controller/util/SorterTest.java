@@ -20,10 +20,8 @@ public class SorterTest {
         statuses.add(new ActivityStatus(3, "new"));
         statuses.add(new ActivityStatus(4, "on update"));
         statuses.add(new ActivityStatus(5, "changed"));
-
         List<ActivityStatus> statusesActual = sorter
                 .sort(statuses, "status");
-
         List<ActivityStatus> statusesExpected = new ArrayList<>();
         statusesExpected.add(new ActivityStatus(5, "changed"));
         statusesExpected.add(new ActivityStatus(2, "deleted"));
@@ -31,15 +29,14 @@ public class SorterTest {
         statusesExpected.add(new ActivityStatus(1, "new"));
         statusesExpected.add(new ActivityStatus(3, "new"));
         statusesExpected.add(new ActivityStatus(4, "on update"));
-
         Assertions.assertArrayEquals(statusesExpected.toArray(), statusesActual.toArray());
     }
 
     @Test
-    public void testGetConditions(){
+    public void testGetConditions() {
         List<String> conditionsActual = Sorter.getConditions(User.class);
         System.out.println(conditionsActual);
-        List<String> conditionsExpected = List.of("activities", "id", "login", "name",  "password", "role", "roleId");
+        List<String> conditionsExpected = List.of("activities", "id", "login", "name", "password", "role", "roleId");
         Assertions.assertArrayEquals(conditionsExpected.toArray(), conditionsActual.toArray());
     }
 }

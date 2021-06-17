@@ -1,13 +1,13 @@
 package com.epam.timetracking.controller.command.client;
 
 import com.epam.timetracking.controller.PagePath;
-import com.epam.timetracking.pojo.bean.ActivityDTO;
+import com.epam.timetracking.controller.util.RequestMapper;
+import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.pojo.Adapter;
+import com.epam.timetracking.pojo.bean.ActivityDTO;
 import com.epam.timetracking.pojo.entity.Activity;
 import com.epam.timetracking.pojo.entity.User;
-import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.service.ClientService;
-import com.epam.timetracking.controller.util.RequestMapper;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,7 +28,9 @@ public class RequestDeleteActivity extends ClientCommand {
             User user = (User) req.getSession().getAttribute("user");
             clientService.sendRequestDeleteActivity(user,
                     new Adapter<>(ActivityDTO.class, Activity.class).adapt(activityDTO));
-            req.setAttribute("message", "Request sent successfully");
+            int activityId = Integer.parseInt(req.getParameter("id"));
+            req.getSession().setAttribute("message", "Request sent successfully");
+            req.getSession().setAttribute("nextPagePath", PagePath.GO_TO_ACTIVITY_COMMAND + activityId);
             return PagePath.MESSAGE;
         } catch (NumberFormatException e) {
             log.error(e);

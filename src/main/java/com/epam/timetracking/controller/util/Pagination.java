@@ -6,7 +6,6 @@ import java.io.Serializable;
 
 /**
  * The Pagination class represents the holder for pagination info.
- *
  */
 @Data
 public class Pagination implements Serializable {
@@ -24,6 +23,13 @@ public class Pagination implements Serializable {
         this.beginIndex = resultsPerPage * (currentPage - 1);
         this.endIndex = beginIndex + resultsPerPage - 1;
         this.resultsPerPage = resultsPerPage;
-        this.amountOfPages = (listSize / resultsPerPage) + 1;
+        this.amountOfPages = calculateAmountOfPages(listSize, resultsPerPage);
+    }
+
+    private int calculateAmountOfPages(int listSize, int resultsPerPage) {
+        if (listSize % resultsPerPage == 0) {
+            return listSize / resultsPerPage;
+        }
+        return (listSize / resultsPerPage) + 1;
     }
 }

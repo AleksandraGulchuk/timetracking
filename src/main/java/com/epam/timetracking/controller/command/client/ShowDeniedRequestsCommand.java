@@ -1,9 +1,9 @@
 package com.epam.timetracking.controller.command.client;
 
 import com.epam.timetracking.controller.PagePath;
+import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.pojo.bean.DeniedRequest;
 import com.epam.timetracking.pojo.entity.User;
-import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.service.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
@@ -24,6 +24,7 @@ public class ShowDeniedRequestsCommand extends ClientCommand {
         int userId = user.getId();
         List<DeniedRequest> requests = clientService.getDeniedRequests(userId);
         req.setAttribute("requests", requests);
+        req.getSession().setAttribute("pagePath", PagePath.SHOW_DENIED_REQUESTS_COMMAND);
         return PagePath.DENIED_REQUESTS;
     }
 }

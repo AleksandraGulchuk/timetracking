@@ -1,8 +1,8 @@
 package com.epam.timetracking.controller.command;
 
 import com.epam.timetracking.controller.PagePath;
-import com.epam.timetracking.pojo.entity.User;
 import com.epam.timetracking.exception.ServiceException;
+import com.epam.timetracking.pojo.entity.User;
 import com.epam.timetracking.service.ClientService;
 import com.epam.timetracking.service.database.util.Fields;
 import lombok.RequiredArgsConstructor;
@@ -12,10 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Login command.
- *
- **/
- @RequiredArgsConstructor
-public class LogInCommand implements Command{
+ */
+@RequiredArgsConstructor
+public class LogInCommand implements Command {
 
     private final ClientService clientService;
 

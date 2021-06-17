@@ -114,7 +114,7 @@ CREATE TABLE users_delete_activity_requests
     CONSTRAINT fk_users_delete_requests_users_id
         FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_users_delete_requests_activities_id
-        FOREIGN KEY (activity_id) REFERENCES activities (id) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (activity_id) REFERENCES activities (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE request_types

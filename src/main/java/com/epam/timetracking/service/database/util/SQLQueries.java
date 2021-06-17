@@ -54,9 +54,8 @@ public class SQLQueries {
     public static final String SELECT_STATUS_ID_BY_STATUS = "SELECT id from statuses WHERE status = ?";
 
 
-
     public static final String SELECT_TOTAL_TIME_FROM_ACTIVITIES_BY_ID =
-        "SELECT total_time FROM activities WHERE id = ? ";
+            "SELECT total_time FROM activities WHERE id = ? ";
     public static final String APPEND_TIME_ACTIVITY =
             "UPDATE activities SET total_time = ?, status_id = 2, last_update_date_time = ? " +
                     " WHERE id = ?";
@@ -64,7 +63,6 @@ public class SQLQueries {
             "INSERT INTO activity_stories " +
                     "(activity_id, update_date_time, time_spent, comment) " +
                     "VALUES (?, ?, ?, ?) ";
-
 
 
     public static final String INSERT_USER_DELETE_REQUEST =
@@ -150,8 +148,6 @@ public class SQLQueries {
                     "SELECT udar.user_id, request_date_time, category_id, title, ?, ? " +
                     "FROM users_delete_activity_requests udar JOIN activities a on udar.activity_id = a.id " +
                     "WHERE udar.id = ?";
-
-
 
 
     public static final String SELECT_USERS =

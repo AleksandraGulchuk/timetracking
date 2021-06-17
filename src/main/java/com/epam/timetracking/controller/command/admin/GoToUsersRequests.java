@@ -2,10 +2,10 @@ package com.epam.timetracking.controller.command.admin;
 
 import com.epam.timetracking.controller.PagePath;
 import com.epam.timetracking.controller.util.Sorter;
+import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.pojo.Adapter;
 import com.epam.timetracking.pojo.bean.UserRequestDTO;
 import com.epam.timetracking.pojo.entity.UserRequest;
-import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.service.AdminService;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
@@ -28,7 +28,7 @@ public class GoToUsersRequests extends AdminCommand {
         log.trace("userRequests = " + userRequests);
         req.getSession().setAttribute("userRequests", adapter.adaptList(userRequests));
         req.getSession().setAttribute("conditions", Sorter.getConditions(UserRequest.class));
-        req.getSession().setAttribute("pagePath", "controller?command=goToUsersRequests");
+        req.getSession().setAttribute("pagePath", PagePath.REQUESTS);
         return PagePath.REQUESTS;
     }
 

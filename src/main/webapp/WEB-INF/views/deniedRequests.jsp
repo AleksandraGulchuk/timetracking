@@ -1,4 +1,4 @@
-<%@include file="components/taglib.jspf"%>
+<%@include file="components/taglib.jspf" %>
 <html>
 <head>
     <c:set var="pageTitle" value="Denied requests" scope="page"/>
@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<h5 align="center"><fmt:message key="deniedRequests_jsp"/> </h5>
+<h5 align="center"><fmt:message key="deniedRequests_jsp"/></h5>
 <table class="table table-striped table-hover">
     <thead>
     <tr>
@@ -40,6 +40,6 @@
     </tbody>
 </table>
 
-<%@include file="components/js.jspf"%>
+<%@include file="components/js.jspf" %>
 </body>
 </html>

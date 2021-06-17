@@ -12,9 +12,8 @@ import java.util.List;
 
 /**
  * Context listener.
- *
  */
- @WebListener
+@WebListener
 public class ContextListener implements ServletContextListener {
 
     @Override

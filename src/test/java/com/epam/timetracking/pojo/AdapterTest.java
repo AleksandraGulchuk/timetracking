@@ -2,11 +2,9 @@ package com.epam.timetracking.pojo;
 
 import com.epam.timetracking.pojo.bean.ActivityDTO;
 import com.epam.timetracking.pojo.bean.ActivityStoryDTO;
-import com.epam.timetracking.pojo.Adapter;
 import com.epam.timetracking.pojo.entity.Activity;
 import com.epam.timetracking.pojo.entity.ActivityStory;
 import com.epam.timetracking.pojo.entity.Time;
-import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -65,7 +63,7 @@ public class AdapterTest {
     }
 
     @Test
-    public void testAdaptList(){
+    public void testAdaptList() {
         LocalDateTime dateTime = LocalDateTime.now();
         List<ActivityDTO> activityDTOList = List.of(
                 new ActivityDTO(1, "project", 1, "title1", "description1", dateTime, null, new Time(), null, "new", null, "userName1", null),

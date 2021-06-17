@@ -18,7 +18,7 @@
     </div>
 </div>
 
-<h5 align="center"><fmt:message key="user_activities_jsp"/>  </h5>
+<h5 align="center"><fmt:message key="user_activities_jsp"/></h5>
 <table>
     <table class="table table-striped table-hover">
         <thead>
@@ -49,6 +49,7 @@
                     <form action="controller" method="post">
                         <input type="hidden" name="command" value="deleteActivity">
                         <input type="hidden" name="activityId" value="${activity.id}">
+                        <input type="hidden" name="userId" value="${userId}">
                         <input type="submit" class="btn btn-outline-danger" value="<fmt:message key="button.delete"/>">
                     </form>
                 </td>
@@ -61,14 +62,16 @@
                 <input type="hidden" name="userId" value="${userId}">
                 <td><b><fmt:message key="client_jsp.new_activity"/> </b></td>
                 <td><select name="categoryId" class="form-select" required>
-                    <option selected disabled value=""><fmt:message key="option.select"/> </option>
+                    <option selected disabled value=""><fmt:message key="option.select"/></option>
                     <c:forEach var="category" items="${categories}">
                         <option type="hidden" name="categoryId" value=${category.id}>${category.category}</option>
                     </c:forEach>
                 </select>
                 </td>
-                <td><input type="text" name="title" placeholder="<fmt:message key="title"/>" class="form-control" required/></td>
-                <td><input type="text" name="description" placeholder="<fmt:message key="description"/>" class="form-control" required/></td>
+                <td><input type="text" name="title" placeholder="<fmt:message key="title"/>" class="form-control"
+                           required/></td>
+                <td><input type="text" name="description" placeholder="<fmt:message key="description"/>"
+                           class="form-control" required/></td>
                 <td>-</td>
                 <td>-</td>
                 <td><input type="time" name="totalTime" value="00:00" class="form-control"/></td>

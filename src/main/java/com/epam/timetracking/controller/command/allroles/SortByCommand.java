@@ -9,11 +9,11 @@ import java.util.List;
 
 /**
  * Sort command.
- *Type parameters:
+ * Type parameters:
  * <T> – the type of objects to be sorted
- *
- **/
+ */
 public class SortByCommand<T> extends AllRolesCommand {
+
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServiceException {
         String condition = req.getParameter("condition");
@@ -22,7 +22,6 @@ public class SortByCommand<T> extends AllRolesCommand {
         if (!list.isEmpty()) {
             Class<T> clazz = (Class<T>) list.get(0).getClass();
             list = new Sorter<>(clazz).sort(list, condition);
-            req.setAttribute(listName, list);
             req.getSession().setAttribute(listName, list);
         }
         return String.valueOf(req.getSession().getAttribute("pagePath"));

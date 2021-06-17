@@ -7,7 +7,6 @@ import java.sql.SQLException;
 
 /**
  * Holder for fields names of database tables.
- *
  */
 public class Fields {
     private static final Logger log = LogManager.getLogger(Fields.class);

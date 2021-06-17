@@ -22,4 +22,10 @@ public class PaginationTest {
         Pagination pagination = new Pagination(45, 10, 2);
         Assertions.assertEquals(5, pagination.getAmountOfPages());
     }
+
+    @Test
+    public void testGetAmountOfPages2() {
+        Pagination pagination = new Pagination(20, 10, 1);
+        Assertions.assertEquals(2, pagination.getAmountOfPages());
+    }
 }

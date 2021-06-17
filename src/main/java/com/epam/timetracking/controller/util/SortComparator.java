@@ -29,7 +29,7 @@ public class SortComparator<T> implements Comparator<T> {
                     if (fieldValueObject1 != null && fieldValueObject2 != null) {
                         return (int) method.invoke(fieldValueObject1, fieldValueObject2);
                     }
-                    if (fieldValueObject1 == null){
+                    if (fieldValueObject1 == null) {
                         return 1;
                     }
                     return -1;
@@ -45,8 +45,8 @@ public class SortComparator<T> implements Comparator<T> {
         String getConditionFieldMethodName =
                 "get" + conditionFieldName.substring(0, 1).toUpperCase() + conditionFieldName.substring(1);
         return resultClass
-                        .getMethod(getConditionFieldMethodName)
-                        .invoke(object1);
+                .getMethod(getConditionFieldMethodName)
+                .invoke(object1);
     }
 
     private Field getConditionField() {

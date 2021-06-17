@@ -71,7 +71,7 @@
                             <td><input type="text" name="login" placeholder="<fmt:message key="login"/>"
                                        class="form-control" required/></td>
                             <td><select name="roleId" class="form-select" required>
-                                <option selected disabled value=""><fmt:message key="option.select"/> </option>
+                                <option selected disabled value=""><fmt:message key="option.select"/></option>
                                 <c:forEach var="role" items="${roles}">
                                     <option type="hidden" name="roleId" value="${role.id}">${role.role}</option>
                                 </c:forEach>

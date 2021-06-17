@@ -11,7 +11,7 @@ public abstract class AllRolesCommand implements Command {
 
     public boolean isAccessible(String role) {
         for (String accessRole : accessRoles) {
-            if(accessRole.equals(role)) return true;
+            if (accessRole.equals(role)) return true;
         }
         return false;
     }

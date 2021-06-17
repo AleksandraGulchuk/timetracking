@@ -1,12 +1,12 @@
 package com.epam.timetracking.controller.command.admin.management;
 
-import com.epam.timetracking.controller.command.admin.AdminCommand;
 import com.epam.timetracking.controller.PagePath;
+import com.epam.timetracking.controller.command.admin.AdminCommand;
 import com.epam.timetracking.controller.util.RequestMapper;
-import com.epam.timetracking.pojo.bean.ActivityDTO;
-import com.epam.timetracking.pojo.Adapter;
-import com.epam.timetracking.pojo.entity.Activity;
 import com.epam.timetracking.exception.ServiceException;
+import com.epam.timetracking.pojo.Adapter;
+import com.epam.timetracking.pojo.bean.ActivityDTO;
+import com.epam.timetracking.pojo.entity.Activity;
 import com.epam.timetracking.service.AdminService;
 import lombok.RequiredArgsConstructor;
 
@@ -23,8 +23,8 @@ public class AddActivity extends AdminCommand {
         Adapter<ActivityDTO, Activity> adapter = new Adapter<>(ActivityDTO.class, Activity.class);
         int userId = Integer.parseInt(req.getParameter("userId"));
         adminService.addActivity(adapter.adapt(activityDTO), userId);
-        req.setAttribute("message", "Activity created successfully");
-        req.getSession().setAttribute("pagePath", PagePath.SHOW_USER_ACTIVITIES_COMMAND + userId);
+        req.getSession().setAttribute("message", "Activity created successfully");
+        req.getSession().setAttribute("nextPagePath", PagePath.SHOW_USER_ACTIVITIES_COMMAND + userId);
         return PagePath.MESSAGE;
     }
 }

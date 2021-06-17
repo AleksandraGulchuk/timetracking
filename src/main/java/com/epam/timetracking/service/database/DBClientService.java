@@ -17,12 +17,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class DBClientService implements ClientService {
-
     private final JdbcTemplate jdbcTemplate;
     private final DataSource dataSource;
-
     private static final Logger log = LogManager.getLogger(DBClientService.class);
-
 
     public DBClientService(DBConfig dbConfig) {
         jdbcTemplate = new JdbcTemplate();

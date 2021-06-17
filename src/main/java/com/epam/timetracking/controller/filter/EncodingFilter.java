@@ -6,14 +6,13 @@ import java.io.IOException;
 
 /**
  * Encoding filter.
- *
  */
- public class EncodingFilter implements Filter {
+public class EncodingFilter implements Filter {
 
     private String encoding;
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
+    public void init(FilterConfig filterConfig) {
         encoding = filterConfig.getInitParameter("encoding");
     }
 

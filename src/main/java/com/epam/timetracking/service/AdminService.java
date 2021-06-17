@@ -64,7 +64,7 @@ public interface AdminService {
      * Adds new Activity object assigned to the user with userId.
      *
      * @param activity - Activity object.
-     * @param userId - user id.
+     * @param userId   - user id.
      */
     void addActivity(Activity activity, int userId) throws ServiceException;
 
@@ -86,7 +86,7 @@ public interface AdminService {
      * Processes user request.
      *
      * @param userRequest - UserRequest object.
-     * @param choice - contains the selected version of the user's request processing.
+     * @param choice      - contains the selected version of the user's request processing.
      */
     void processUserRequest(UserRequest userRequest, String choice) throws ServiceException;
 

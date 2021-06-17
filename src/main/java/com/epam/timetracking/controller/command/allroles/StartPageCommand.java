@@ -1,11 +1,11 @@
 package com.epam.timetracking.controller.command.allroles;
 
 import com.epam.timetracking.controller.PagePath;
-import com.epam.timetracking.pojo.bean.ActivityDTO;
+import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.pojo.Adapter;
+import com.epam.timetracking.pojo.bean.ActivityDTO;
 import com.epam.timetracking.pojo.entity.Activity;
 import com.epam.timetracking.pojo.entity.User;
-import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.service.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
@@ -21,7 +21,6 @@ import javax.servlet.http.HttpServletResponse;
 public class StartPageCommand extends AllRolesCommand {
     private final ClientService clientService;
     private static final Logger log = LogManager.getLogger(StartPageCommand.class);
-
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServiceException {
@@ -52,5 +51,4 @@ public class StartPageCommand extends AllRolesCommand {
         req.getSession().setAttribute("status", clientService.getActivityStatuses());
         req.getSession().setAttribute("pagePath", PagePath.CLIENT_START);
     }
-
 }

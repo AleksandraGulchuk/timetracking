@@ -26,8 +26,9 @@ public class ProcessUserRequest extends AdminCommand {
         UserRequest userRequest = new Adapter<>(UserRequestDTO.class, UserRequest.class).adapt(userRequestDTO);
         log.trace("Request: " + userRequest + " choice: " + choice);
         adminService.processUserRequest(userRequest, choice);
-        req.setAttribute("message", "Request processed successfully");
-        req.getSession().setAttribute("pagePath", "controller?command=goToUsersRequests");
+
+        req.getSession().setAttribute("message", "Request processed successfully");
+        req.getSession().setAttribute("nextPagePath", PagePath.GO_TO_USERS_REQUESTS_COMMAND);
         return PagePath.MESSAGE;
     }
 }

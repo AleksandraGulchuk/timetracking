@@ -16,8 +16,7 @@ public class FilterByCommand<T> extends AllRolesCommand {
         List<T> list = (List<T>) req.getSession().getAttribute(listName);
         if (!list.isEmpty()) {
             Class<T> clazz = (Class<T>) list.get(0).getClass();
-            list = new Filter<T>(clazz).filter(list, condition, values);
-            req.setAttribute(listName, list);
+            list = new Filter<>(clazz).filter(list, condition, values);
             req.getSession().setAttribute(listName, list);
         }
         return String.valueOf(req.getSession().getAttribute("pagePath"));

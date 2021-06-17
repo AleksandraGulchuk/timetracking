@@ -1,7 +1,7 @@
 package com.epam.timetracking.controller.util;
 
-import com.epam.timetracking.pojo.entity.ActivityStatus;
 import com.epam.timetracking.exception.ServiceException;
+import com.epam.timetracking.pojo.entity.ActivityStatus;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -20,11 +20,9 @@ public class FilterTest {
         statuses.add(new ActivityStatus(3, "new"));
         statuses.add(new ActivityStatus(4, "on update"));
         statuses.add(new ActivityStatus(5, "changed"));
-
         try {
             List<ActivityStatus> statusesActual = filter
                     .filter(statuses, "status", new String[]{"new", "changed"});
-
             ActivityStatus[] statusesExpected = new ActivityStatus[]{
                     new ActivityStatus(0, "new"),
                     new ActivityStatus(1, "new"),
@@ -35,6 +33,5 @@ public class FilterTest {
         } catch (ServiceException e) {
             e.printStackTrace();
         }
-
     }
 }

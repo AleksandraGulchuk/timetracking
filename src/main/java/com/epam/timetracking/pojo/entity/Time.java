@@ -22,7 +22,6 @@ public class Time implements Comparable<Time> {
      *
      * @param timeAsString - a String object to parse.
      *                     Must match next patterns: \d{2}:\d{2}:\d{2} or \d{2}:\d{2}
-     *
      * @return - a parsed Time object.
      */
     public static Time parse(String timeAsString) {
@@ -31,11 +30,11 @@ public class Time implements Comparable<Time> {
         }
         String[] times = timeAsString.split(":");
         long result = 0L;
-        if(times.length == 2) {
+        if (times.length == 2) {
             result = Long.parseLong(times[0]) * HOUR +
                     Long.parseLong(times[1]) * MINUTE;
         }
-        if(times.length == 3){
+        if (times.length == 3) {
             result = Long.parseLong(times[0]) * DAY +
                     Long.parseLong(times[1]) * HOUR +
                     Long.parseLong(times[2]) * MINUTE;
@@ -57,7 +56,6 @@ public class Time implements Comparable<Time> {
      *
      * @param time1 - first addend.
      * @param time2 - second addend.
-     *
      * @return - the total sum of Time objects.
      */
     public static Time sum(Time time1, Time time2) {

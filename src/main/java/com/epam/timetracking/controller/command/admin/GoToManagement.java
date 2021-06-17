@@ -1,9 +1,9 @@
 package com.epam.timetracking.controller.command.admin;
 
 import com.epam.timetracking.controller.PagePath;
+import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.pojo.entity.Category;
 import com.epam.timetracking.pojo.entity.User;
-import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.service.AdminService;
 import com.epam.timetracking.service.ClientService;
 import lombok.RequiredArgsConstructor;

@@ -60,15 +60,8 @@
 
             <h5><fmt:message key="activity_jsp.append_time_of_activity"/></h5>
             <form action="controller" method="post">
-
-
-
                 <input type="hidden" name="command" value="appendTimeActivity">
                 <input type="hidden" name="id" value="${activity.id}">
-
-<%--                <input type="hidden" name="status" value="${activity.status}">--%>
-
-
                 <div class="input-group mb-3">
                     <input type="time" name="appendTime" class="form-control" required/>
                     <input type="text" class="form-control" name="comment" placeholder="<fmt:message key="comment"/>"
@@ -85,11 +78,12 @@
                 <tr>
                     <td><b><fmt:message key="updateDateTime"/> </b></td>
                     <td><b><fmt:message key="timeSpent"/> </b></td>
-                    <td><b><fmt:message key="comment"/> </b></td>
+                    <td class="w-50 p-3"><b><fmt:message key="comment"/> </b></td>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach begin = "${pagination.beginIndex}" end = "${pagination.endIndex}" var="story" items="${activity.stories}">
+                <c:forEach begin="${pagination.beginIndex}" end="${pagination.endIndex}" var="story"
+                           items="${activity.stories}">
                     <tr>
                         <td><t:formatDateTime dateTime="${story.updateDateTime}"/></td>
                         <td>${story.timeSpent}</td>
@@ -117,17 +111,7 @@
             </form>
         </td>
         <td class="align-bottom">
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center">
-                        <c:forEach var = "i" begin = "1" end = "${pagination.amountOfPages}">
-                            <li class="page-item">
-                                <a class="page-link"
-                                   href="controller?command=goToActivity&activityId=${activity.id}&page=${i}">
-                                    <c:out value = "${i}"/>
-                                </a></li>
-                        </c:forEach>
-                </ul>
-            </nav>
+            <comp:pagination/>
         </td>
     </tr>
 </table>

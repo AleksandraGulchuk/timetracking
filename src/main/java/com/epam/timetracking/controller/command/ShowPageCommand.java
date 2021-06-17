@@ -9,15 +9,18 @@ import java.io.IOException;
 
 /**
  * Show page command.
- *
- **/
+ */
 public class ShowPageCommand implements Command {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServiceException, IOException {
-
         Object pagePath = req.getSession().getAttribute("pagePath");
+        req.getSession().removeAttribute("pagePath");
         if (pagePath == null) {
-            return PagePath.START_PAGE_COMMAND;
+            pagePath = req.getSession().getAttribute("nextPagePath");
+            req.getSession().removeAttribute("message");
+            if (pagePath == null) {
+                return PagePath.START_PAGE_COMMAND;
+            }
         }
         return pagePath.toString();
     }
