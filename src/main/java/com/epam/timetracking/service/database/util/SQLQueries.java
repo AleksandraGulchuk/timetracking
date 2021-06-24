@@ -67,8 +67,8 @@ public class SQLQueries {
 
     public static final String INSERT_USER_DELETE_REQUEST =
             "INSERT INTO users_delete_activity_requests " +
-                    "(request_date_time, user_id, activity_id, comment, activity_old_status_id) " +
-                    "VALUES (?, ?, ?, ?, ?)";
+                    "(request_date_time, user_id, activity_id, comment) " +
+                    "VALUES (?, ?, ?, ?)";
 
 
     public static final String SET_STATUS_ON_UPDATE_ACTIVITY =

@@ -157,14 +157,12 @@ public class DBClientService implements ClientService {
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
-            int activityOldStatusId = getActivityStatusId(activity.getStatus(), connection);
-
             jdbcTemplate.update(connection, SQLQueries.INSERT_USER_DELETE_REQUEST,
                     new Object[]{LocalDateTime.now(),
                             user.getId(),
                             activity.getId(),
                             activity.getComment(),
-                            activityOldStatusId});
+            });
 
             jdbcTemplate.update(connection,
                     SQLQueries.SET_STATUS_ON_UPDATE_ACTIVITY,
@@ -206,13 +204,6 @@ public class DBClientService implements ClientService {
         } finally {
             JdbcTemplate.closeResources(connection);
         }
-    }
-
-    private int getActivityStatusId(String status, Connection connection) throws SQLException {
-        return jdbcTemplate.queryOne(connection,
-                SQLQueries.SELECT_STATUS_ID_BY_STATUS,
-                new String[]{status},
-                Fields.getIntegerRowMapper(Fields.ID));
     }
 
     private void rollbackTransaction(Connection connection) {
