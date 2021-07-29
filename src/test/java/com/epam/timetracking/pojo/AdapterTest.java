@@ -1,7 +1,7 @@
 package com.epam.timetracking.pojo;
 
-import com.epam.timetracking.pojo.bean.ActivityDTO;
-import com.epam.timetracking.pojo.bean.ActivityStoryDTO;
+import com.epam.timetracking.pojo.dto.ActivityDTO;
+import com.epam.timetracking.pojo.dto.ActivityStoryDTO;
 import com.epam.timetracking.pojo.entity.Activity;
 import com.epam.timetracking.pojo.entity.ActivityStory;
 import com.epam.timetracking.pojo.entity.Time;

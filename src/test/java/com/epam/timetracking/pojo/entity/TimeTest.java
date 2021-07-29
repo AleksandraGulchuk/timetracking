@@ -50,5 +50,7 @@ public class TimeTest {
         Assertions.assertEquals("00:12:00", time1.toString());
         Time time2 = new Time();
         Assertions.assertEquals("00:00:00", time2.toString());
+        Time time3 = new Time(8640000L);
+        Assertions.assertEquals("100:00:00", time3.toString());
     }
 }

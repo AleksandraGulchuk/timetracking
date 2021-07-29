@@ -3,10 +3,12 @@ package com.epam.timetracking.controller.command.allroles;
 import com.epam.timetracking.controller.PagePath;
 import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.pojo.Adapter;
-import com.epam.timetracking.pojo.bean.ActivityDTO;
+import com.epam.timetracking.pojo.dto.ActivityDTO;
 import com.epam.timetracking.pojo.entity.Activity;
 import com.epam.timetracking.pojo.entity.User;
-import com.epam.timetracking.service.ClientService;
+import com.epam.timetracking.service.database.ActivityService;
+import com.epam.timetracking.service.database.CategoryService;
+import com.epam.timetracking.service.database.UserService;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,7 +21,9 @@ import javax.servlet.http.HttpServletResponse;
  **/
 @RequiredArgsConstructor
 public class StartPageCommand extends AllRolesCommand {
-    private final ClientService clientService;
+    private final CategoryService categoryService;
+    private final ActivityService activityService;
+    private final UserService userService;
     private static final Logger log = LogManager.getLogger(StartPageCommand.class);
 
     @Override
@@ -45,10 +49,10 @@ public class StartPageCommand extends AllRolesCommand {
 
     private void setAttributesForClient(HttpServletRequest req, User user) throws ServiceException {
         Adapter<Activity, ActivityDTO> adapter = new Adapter<>(Activity.class, ActivityDTO.class);
-        req.getSession().setAttribute("categories", clientService.getCategories());
+        req.getSession().setAttribute("categories", categoryService.getCategories());
         req.getSession().setAttribute("activities",
-                adapter.adaptList(clientService.getActivities(user.getId())));
-        req.getSession().setAttribute("status", clientService.getActivityStatuses());
+                adapter.adaptList(userService.getActivities(user.getId())));
+        req.getSession().setAttribute("status", activityService.getActivityStatuses());
         req.getSession().setAttribute("pagePath", PagePath.CLIENT_START);
     }
 }

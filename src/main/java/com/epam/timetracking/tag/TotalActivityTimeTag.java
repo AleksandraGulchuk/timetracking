@@ -1,6 +1,6 @@
 package com.epam.timetracking.tag;
 
-import com.epam.timetracking.pojo.bean.ActivityDTO;
+import com.epam.timetracking.pojo.dto.ActivityDTO;
 import com.epam.timetracking.pojo.entity.Time;
 import lombok.Getter;
 import lombok.Setter;

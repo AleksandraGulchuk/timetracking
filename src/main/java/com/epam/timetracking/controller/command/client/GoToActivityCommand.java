@@ -4,11 +4,11 @@ import com.epam.timetracking.controller.PagePath;
 import com.epam.timetracking.controller.util.Pagination;
 import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.pojo.Adapter;
-import com.epam.timetracking.pojo.bean.ActivityDTO;
-import com.epam.timetracking.pojo.bean.ActivityStoryDTO;
+import com.epam.timetracking.pojo.dto.ActivityDTO;
+import com.epam.timetracking.pojo.dto.ActivityStoryDTO;
 import com.epam.timetracking.pojo.entity.Activity;
 import com.epam.timetracking.pojo.entity.ActivityStory;
-import com.epam.timetracking.service.ClientService;
+import com.epam.timetracking.service.database.ActivityService;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @RequiredArgsConstructor
 public class GoToActivityCommand extends ClientCommand {
-    private final ClientService clientService;
+    private final ActivityService activityService;
     private final int RESULTS_PER_PAGE = 10;
     private static final Logger log = LogManager.getLogger(GoToActivityCommand.class);
 
@@ -30,7 +30,7 @@ public class GoToActivityCommand extends ClientCommand {
         }
         try {
             int id = Integer.parseInt(activityId);
-            Activity activity = clientService.getActivity(id);
+            Activity activity = activityService.getActivity(id);
             if (activity == null) {
                 throw new ServiceException("Activity not found!");
             }

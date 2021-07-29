@@ -1,4 +1,4 @@
-package com.epam.timetracking.pojo.bean;
+package com.epam.timetracking.pojo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

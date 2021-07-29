@@ -2,8 +2,6 @@ package com.epam.timetracking.controller.command.allroles;
 
 import com.epam.timetracking.controller.PagePath;
 import com.epam.timetracking.exception.ServiceException;
-import com.epam.timetracking.pojo.entity.User;
-import com.epam.timetracking.service.ClientService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -12,7 +10,6 @@ import org.mockito.Mockito;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.Collections;
 
 class LogOutCommandTest {
 

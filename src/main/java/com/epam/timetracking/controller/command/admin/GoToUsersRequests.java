@@ -4,9 +4,9 @@ import com.epam.timetracking.controller.PagePath;
 import com.epam.timetracking.controller.util.Sorter;
 import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.pojo.Adapter;
-import com.epam.timetracking.pojo.bean.UserRequestDTO;
+import com.epam.timetracking.pojo.dto.UserRequestDTO;
 import com.epam.timetracking.pojo.entity.UserRequest;
-import com.epam.timetracking.service.AdminService;
+import com.epam.timetracking.service.database.UserRequestsService;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,11 +19,11 @@ import java.util.List;
 public class GoToUsersRequests extends AdminCommand {
     private static final Logger log = LogManager.getLogger(GoToUsersRequests.class);
 
-    private final AdminService adminService;
+    private final UserRequestsService userRequestsService;
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServiceException {
-        List<UserRequest> userRequests = adminService.getUserRequests();
+        List<UserRequest> userRequests = userRequestsService.getUserRequests();
         Adapter<UserRequest, UserRequestDTO> adapter = new Adapter<>(UserRequest.class, UserRequestDTO.class);
         log.trace("userRequests = " + userRequests);
         req.getSession().setAttribute("userRequests", adapter.adaptList(userRequests));
