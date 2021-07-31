@@ -8,19 +8,24 @@ import com.epam.timetracking.service.database.util.ResultSetRowMapper;
 import com.epam.timetracking.service.database.util.SQLQueries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
+@Service
 public class CategoryService {
+
     private final JdbcTemplate jdbcTemplate;
     private final DataSource dataSource;
     private static final Logger log = LogManager.getLogger(CategoryService.class);
 
-    public CategoryService(DBConfig dbConfig) {
-        jdbcTemplate = new JdbcTemplate();
+    @Autowired
+    public CategoryService(DBConfig dbConfig, JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
         dataSource = dbConfig.getDataSource();
     }
 

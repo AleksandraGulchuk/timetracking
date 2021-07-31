@@ -7,12 +7,15 @@ import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.pojo.entity.User;
 import com.epam.timetracking.service.database.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@Component("addUser")
 @RequiredArgsConstructor
 public class AddUser extends AdminCommand {
+
     private final UserService userService;
 
     @Override

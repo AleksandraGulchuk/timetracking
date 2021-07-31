@@ -8,6 +8,8 @@ import com.epam.timetracking.pojo.entity.User;
 import com.epam.timetracking.service.database.util.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -16,13 +18,16 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class ActivityService {
+
     private final JdbcTemplate jdbcTemplate;
     private final DataSource dataSource;
     private static final Logger log = LogManager.getLogger(ActivityService.class);
 
-    public ActivityService(DBConfig dbConfig) {
-        jdbcTemplate = new JdbcTemplate();
+    @Autowired
+    public ActivityService(DBConfig dbConfig, JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
         dataSource = dbConfig.getDataSource();
     }
 

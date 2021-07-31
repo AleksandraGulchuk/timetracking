@@ -8,13 +8,16 @@ import com.epam.timetracking.service.database.UserRequestsService;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
+@Component("showDeniedRequests")
 @RequiredArgsConstructor
 public class ShowDeniedRequestsCommand extends ClientCommand {
+
     private final UserRequestsService userRequestsService;
     private static final Logger log = LogManager.getLogger(ShowDeniedRequestsCommand.class);
 

@@ -74,16 +74,20 @@ public class SQLQueries {
     public static final String SET_STATUS_ON_UPDATE_ACTIVITY =
             "UPDATE activities SET status_id = 3 WHERE id = ?";
 
+    public static final String SET_STATUS_CHANGED_ACTIVITY =
+            "UPDATE activities SET status_id = 2 WHERE id = ?";
+
+
     public static final String SET_OLD_STATUS_ACTIVITY_FROM_APPEND_TIME_REQUESTS =
             "UPDATE activities SET status_id = " +
                     "(SELECT activity_old_status_id FROM users_append_time_activity_requests WHERE id = ?) " +
                     "WHERE id = (SELECT activity_id FROM users_append_time_activity_requests WHERE id = ?)";
 
 
-    public static final String SET_OLD_STATUS_ACTIVITY_FROM_DELETE_REQUESTS =
-            "UPDATE activities SET status_id = " +
-                    "(SELECT activity_old_status_id FROM users_delete_activity_requests WHERE id = ?) " +
-                    "WHERE id = (SELECT activity_id FROM users_delete_activity_requests WHERE id = ?)";
+//    public static final String SET_OLD_STATUS_ACTIVITY_FROM_DELETE_REQUESTS =
+//            "UPDATE activities SET status_id = " +
+//                    "(SELECT activity_old_status_id FROM users_delete_activity_requests WHERE id = ?) " +
+//                    "WHERE id = (SELECT activity_id FROM users_delete_activity_requests WHERE id = ?)";
 
 
     public static final String SELECT_USERS_DELETE_REQUESTS =

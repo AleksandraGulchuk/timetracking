@@ -2,6 +2,7 @@ package com.epam.timetracking.controller.command.allroles;
 
 import com.epam.timetracking.controller.util.Sorter;
 import com.epam.timetracking.exception.ServiceException;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +13,7 @@ import java.util.List;
  * Type parameters:
  * <T> – the type of objects to be sorted
  */
+@Component("sortBy")
 public class SortByCommand<T> extends AllRolesCommand {
 
     @Override

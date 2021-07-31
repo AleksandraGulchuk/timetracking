@@ -2,6 +2,7 @@ package com.epam.timetracking.controller.command;
 
 import com.epam.timetracking.controller.PagePath;
 import com.epam.timetracking.exception.ServiceException;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +12,9 @@ import java.io.IOException;
 /**
  * Set locate command.
  */
+@Component("setLocale")
 public class SetLocaleCommand implements Command {
+
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServiceException, IOException {
         String locale = req.getParameter("locale");

@@ -5,12 +5,15 @@ import com.epam.timetracking.controller.command.admin.AdminCommand;
 import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.service.database.CategoryService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@Component("deleteCategory")
 @RequiredArgsConstructor
 public class DeleteCategory extends AdminCommand {
+
     private final CategoryService categoryService;
 
     @Override

@@ -11,10 +11,12 @@ import com.epam.timetracking.service.database.UserRequestsService;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@Component("requestCreateActivity")
 @RequiredArgsConstructor
 public class RequestCreateActivity extends ClientCommand {
 

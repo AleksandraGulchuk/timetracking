@@ -8,11 +8,13 @@ import com.epam.timetracking.pojo.dto.ActivityDTO;
 import com.epam.timetracking.pojo.entity.Activity;
 import com.epam.timetracking.service.database.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
+@Component("showUserActivities")
 @RequiredArgsConstructor
 public class ShowUserActivities extends AdminCommand {
 

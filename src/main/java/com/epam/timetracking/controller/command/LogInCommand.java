@@ -6,6 +6,7 @@ import com.epam.timetracking.pojo.entity.User;
 import com.epam.timetracking.service.database.UserService;
 import com.epam.timetracking.service.database.util.Fields;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Login command.
  */
+@Component("logIn")
 @RequiredArgsConstructor
 public class LogInCommand implements Command {
 

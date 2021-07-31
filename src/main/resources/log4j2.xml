@@ -12,7 +12,7 @@
     </Appenders>
 
     <Loggers>
-        <Logger name="com.epam.timetracking.controller.ControllerServlet" level="trace"/>
+        <Logger name="com.epam.timetracking.controller.SpringController" level="trace"/>
         <Root level="info">
             <AppenderRef ref="File"/>
             <AppenderRef ref="Console"/>

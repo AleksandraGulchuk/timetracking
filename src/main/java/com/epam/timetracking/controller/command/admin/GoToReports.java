@@ -12,12 +12,14 @@ import com.epam.timetracking.service.database.ActivityService;
 import com.epam.timetracking.service.database.CategoryService;
 import com.epam.timetracking.service.database.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component("goToReports")
 @RequiredArgsConstructor
 public class GoToReports extends AdminCommand {
 

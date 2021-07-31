@@ -5,12 +5,15 @@ import com.epam.timetracking.controller.command.admin.AdminCommand;
 import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.service.database.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@Component("deleteUser")
 @RequiredArgsConstructor
 public class DeleteUser extends AdminCommand {
+
     private final UserService userService;
 
     @Override

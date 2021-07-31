@@ -5,12 +5,15 @@ import com.epam.timetracking.controller.command.admin.AdminCommand;
 import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.service.database.ActivityService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@Component("deleteActivity")
 @RequiredArgsConstructor
 public class DeleteActivity extends AdminCommand {
+
     private final ActivityService activityService;
 
     @Override

@@ -7,12 +7,15 @@ import com.epam.timetracking.exception.ServiceException;
 import com.epam.timetracking.pojo.entity.Category;
 import com.epam.timetracking.service.database.CategoryService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@Component("addCategory")
 @RequiredArgsConstructor
 public class AddCategory extends AdminCommand {
+
     private final CategoryService categoryService;
 
     @Override

@@ -12,6 +12,7 @@ import com.epam.timetracking.service.database.UserService;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,8 +20,10 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Start page command.
  **/
+@Component("startPageCommand")
 @RequiredArgsConstructor
 public class StartPageCommand extends AllRolesCommand {
+
     private final CategoryService categoryService;
     private final ActivityService activityService;
     private final UserService userService;

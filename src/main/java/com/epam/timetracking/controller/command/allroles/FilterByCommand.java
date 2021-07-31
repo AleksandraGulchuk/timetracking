@@ -2,12 +2,15 @@ package com.epam.timetracking.controller.command.allroles;
 
 import com.epam.timetracking.controller.util.Filter;
 import com.epam.timetracking.exception.ServiceException;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
+@Component("filterBy")
 public class FilterByCommand<T> extends AllRolesCommand {
+
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServiceException {
         String[] values = req.getParameterValues("value");

@@ -9,12 +9,15 @@ import com.epam.timetracking.pojo.dto.ActivityDTO;
 import com.epam.timetracking.pojo.entity.Activity;
 import com.epam.timetracking.service.database.ActivityService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@Component("addActivity")
 @RequiredArgsConstructor
 public class AddActivity extends AdminCommand {
+
     private final ActivityService activityService;
 
     @Override

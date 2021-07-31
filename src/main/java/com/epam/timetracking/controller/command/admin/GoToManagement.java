@@ -10,14 +10,17 @@ import com.epam.timetracking.service.database.UserService;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component("goToManagement")
 @RequiredArgsConstructor
 public class GoToManagement extends AdminCommand {
+
     private static final Logger log = LogManager.getLogger(GoToManagement.class);
     private final UserService userService;
     private final CategoryService categoryService;

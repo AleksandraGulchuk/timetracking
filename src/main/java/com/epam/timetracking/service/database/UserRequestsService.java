@@ -8,6 +8,8 @@ import com.epam.timetracking.pojo.entity.UserRequest;
 import com.epam.timetracking.service.database.util.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -16,17 +18,20 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class UserRequestsService {
+
     private final JdbcTemplate jdbcTemplate;
     private final DataSource dataSource;
     private static final Logger log = LogManager.getLogger(UserRequestsService.class);
 
-    public UserRequestsService(DBConfig dbConfig) {
-        jdbcTemplate = new JdbcTemplate();
+    @Autowired
+    public UserRequestsService(DBConfig dbConfig, JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
         dataSource = dbConfig.getDataSource();
     }
 
-        /**
+    /**
      * Sends a user request to create a new activity.
      *
      * @param user     - User object.
@@ -78,7 +83,7 @@ public class UserRequestsService {
         }
     }
 
-        /**
+    /**
      * Sends user request to delete activity.
      *
      * @param user     - User object.
@@ -200,7 +205,7 @@ public class UserRequestsService {
                 log.debug("deleteActivity - start deny transaction");
                 jdbcTemplate.update(connection, SQLQueries.INSERT_MESSAGE_DENY_DELETE_ACTIVITY_REQUEST, new Object[]{2, comment, requestId});
 
-                jdbcTemplate.update(connection, SQLQueries.SET_OLD_STATUS_ACTIVITY_FROM_DELETE_REQUESTS, new Integer[]{requestId, requestId});
+                jdbcTemplate.update(connection, SQLQueries.SET_STATUS_CHANGED_ACTIVITY, new Integer[]{requestId, requestId});
 
                 jdbcTemplate.update(connection, SQLQueries.DELETE_USER_REQUEST_DELETE_ACTIVITY_FROM_DELETE_REQUESTS, reqIdParam);
                 connection.commit();

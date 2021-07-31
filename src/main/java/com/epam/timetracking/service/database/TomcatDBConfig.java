@@ -9,27 +9,13 @@ import javax.sql.DataSource;
 
 public class TomcatDBConfig implements DBConfig {
 
-    private static TomcatDBConfig dBConfigTomcat;
-    private final DataSource dataSource;
-
-    private TomcatDBConfig() {
+    @Override
+    public DataSource getDataSource() {
         try {
             Context initContext = new InitialContext();
-            dataSource = (DataSource) initContext.lookup("java:/comp/env/jdbc/timetracking");
+            return (DataSource) initContext.lookup("java:/comp/env/jdbc/timetracking");
         } catch (NamingException exception) {
             throw new IllegalStateException("Cannot init DBManager", exception);
         }
-    }
-
-    public static synchronized TomcatDBConfig getInstance() {
-        if (dBConfigTomcat == null) {
-            dBConfigTomcat = new TomcatDBConfig();
-        }
-        return dBConfigTomcat;
-    }
-
-    @Override
-    public DataSource getDataSource() {
-        return dataSource;
     }
 }

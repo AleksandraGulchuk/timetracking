@@ -12,12 +12,15 @@ import com.epam.timetracking.service.database.ActivityService;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@Component("goToActivity")
 @RequiredArgsConstructor
 public class GoToActivityCommand extends ClientCommand {
+
     private final ActivityService activityService;
     private final int RESULTS_PER_PAGE = 10;
     private static final Logger log = LogManager.getLogger(GoToActivityCommand.class);
